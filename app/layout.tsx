@@ -1,6 +1,6 @@
 import type {Metadata} from 'next';
 import { Baloo_2, Nunito } from 'next/font/google';
-import './globals.css'; // Global styles
+import './globals.css';
 
 const baloo = Baloo_2({
   subsets: ['latin'],
@@ -15,14 +15,44 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: 'Pequenos Gênios™ | O Mundo da Leitura',
-  description: 'Uma jornada lúdica e progressiva que transforma a curiosidade natural da criança em confiança para ler.',
+  title: 'Pequenos Gênios™ — Jornada Mágica de Alfabetização | Programa Completo',
+  description:
+    'O Pequenos Gênios™ é uma jornada lúdica e progressiva em 3 missões que transforma a curiosidade da criança em confiança para ler. Do primeiro A até as primeiras histórias — com imagens, atividades e o Baú Mágico da Leitura. Por apenas R$27.',
+  keywords: [
+    'alfabetização infantil',
+    'cartilha de alfabetização',
+    'caderno silábico',
+    'atividades de leitura',
+    'material didático para crianças',
+    'programa de alfabetização',
+    'pequenos gênios',
+    'ensino fundamental',
+    'educação infantil',
+    'baú mágico da leitura',
+  ],
+  openGraph: {
+    title: 'Pequenos Gênios™ — Do Primeiro A até a Primeira Leitura',
+    description:
+      'Uma jornada completa, lúdica e progressiva de alfabetização em 3 missões. Mais de R$415 em materiais por apenas R$27.',
+    type: 'website',
+    locale: 'pt_BR',
+    images: [
+      {
+        url: '/imgs/COLEÇÃO.png',
+        width: 1200,
+        height: 630,
+        alt: 'Coleção Pequenos Gênios — Programa de Alfabetização',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="pt-BR" className={`scroll-smooth ${baloo.variable} ${nunito.variable}`}>
-      <body className="font-sans antialiased text-slate-800 bg-white" suppressHydrationWarning>{children}</body>
+      <body className="font-sans antialiased text-slate-800 bg-white" suppressHydrationWarning>
+        {children}
+      </body>
     </html>
   );
 }
