@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: var(--font-baloo), sans-serif;
+  --font-sans: var(--font-nunito), sans-serif;
+  
+  --color-primary: #D8C3E5; /* Roxo Pastel */
+  --color-secondary: #D2E9F5; /* Azul Céu */
+  --color-accent: #F4A261; /* Laranja Aveludado */
+  --color-accent-hover: #E76F51;
+  --color-success: #9ED8C9; /* Verde Menta */
+  --color-highlight: #F4D03F; /* Amarelo Ouro */
+  --color-ink: #2C3E50;
+}
+
+.watercolor-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  border-radius: 24px;
+  border: 2px solid white;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.badge-gold {
+  background: var(--color-highlight);
+  color: var(--color-ink);
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-weight: bold;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float { 
+  animation: float 3s ease-in-out infinite; 
+}
+
+.animate-float-delayed { 
+  animation: float 3s ease-in-out 1.5s infinite; 
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 0 0 rgba(244, 162, 97, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(244, 162, 97, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(244, 162, 97, 0); }
+}
+
+.animate-pulse-glow { 
+  animation: pulse-glow 2s infinite; 
+}
+
+@keyframes pulse-glow-green {
+  0% { box-shadow: 0 0 0 0 rgba(158, 216, 201, 0.8); }
+  70% { box-shadow: 0 0 0 15px rgba(158, 216, 201, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(158, 216, 201, 0); }
+}
+
+.animate-pulse-glow-green { 
+  animation: pulse-glow-green 2s infinite; 
+}
+
+.bg-texture {
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.text-glow {
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(244, 208, 63, 0.6);
+}
+
+.text-shadow-sm {
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Hide scrollbar for carousel */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
