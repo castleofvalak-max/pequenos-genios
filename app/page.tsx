@@ -873,9 +873,9 @@ export default function Home() {
             © 2026 Coleção Pequenos Gênios™. Todos os direitos reservados.
           </p>
           <div className="flex justify-center gap-6 text-sm flex-wrap">
-            <a href="#" className="hover:text-white transition-colors">Termos de Uso</a>
-            <a href="#" className="hover:text-white transition-colors">Política de Privacidade</a>
-            <a href="#" className="hover:text-white transition-colors">Suporte</a>
+            <a href="/termos-de-uso" className="hover:text-white transition-colors">Termos de Uso</a>
+            <a href="/politica-de-privacidade" className="hover:text-white transition-colors">Política de Privacidade</a>
+            <a href="/suporte" className="hover:text-white transition-colors">Suporte</a>
           </div>
         </div>
       </footer>
