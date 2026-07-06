@@ -695,7 +695,7 @@ export default function Home() {
                 </div>
 
                 <a
-                  href="#"
+                  href="https://paygenios.laboratorioia.shop/checkout/v5/UCX9hNH4EPEZaCiZ5I1t"
                   className="block text-center bg-[#D8C3E5] hover:bg-[#c4a8d8] text-slate-900 font-display font-black text-base py-4 px-6 rounded-2xl transition-all duration-200 hover:-translate-y-0.5"
                   id="basic-offer-btn"
                 >
@@ -762,7 +762,7 @@ export default function Home() {
 
                 {/* CTA Principal */}
                 <a
-                  href="#"
+                  href="https://paygenios.laboratorioia.shop/checkout/v5/5uZ4g4wmKRO2zfFuUQcz"
                   className="cta-primary animate-pulse-glow-green"
                   id="main-cta-btn"
                 >
@@ -840,7 +840,7 @@ export default function Home() {
                 Ainda tem dúvidas? Fale com a gente antes de comprar. 👇
               </p>
               <a
-                href="#oferta"
+                href="https://paygenios.laboratorioia.shop/checkout/v5/5uZ4g4wmKRO2zfFuUQcz"
                 className="inline-flex items-center gap-3 bg-[#F4A261] hover:bg-[#E76F51] text-white font-display font-black text-xl px-10 py-5 rounded-full transition-all duration-300 animate-pulse-glow shadow-xl hover:-translate-y-1"
                 id="faq-cta-btn"
               >
