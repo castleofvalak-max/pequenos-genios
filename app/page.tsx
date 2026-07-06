@@ -11,12 +11,11 @@ import { StickyCTA } from '@/components/StickyCTA';
 import { AutoCarousel } from '@/components/AutoCarousel';
 
 // ============================================================
-// IMAGENS
+// IMAGENS — Todas locais e em WebP para máxima performance
 // ============================================================
-// Hero — substituída por Imgur
-const IMG_HERO = "https://i.imgur.com/FDAToie.jpeg";
-const IMG_JORNADA = "/imgs/Girl_and_dragon_reading_book_202607032022.jpeg";
-const IMG_MATERIAIS = "/imgs/Children's_desk_with_educational\u2026_2K_202607031849.jpeg";
+const IMG_HERO = "/imgs/hero.webp";
+const IMG_JORNADA = "/imgs/jornada.webp";
+const IMG_MATERIAIS = "/imgs/materiais.webp";
 
 // ============================================================
 // DADOS ESTÁTICOS
@@ -227,10 +226,9 @@ export default function Home() {
                       alt="Coleção Pequenos Gênios — todos os materiais da jornada de alfabetização"
                       width={500}
                       height={500}
-                      sizes="90vw"
+                      sizes="(max-width: 640px) 90vw, 500px"
                       className="relative object-contain drop-shadow-2xl w-full rounded-3xl"
                       priority
-                      unoptimized
                     />
                   </div>
                 </Reveal>
@@ -266,10 +264,9 @@ export default function Home() {
                     alt="Coleção Pequenos Gênios — todos os materiais da jornada de alfabetização"
                     width={600}
                     height={600}
-                    sizes="50vw"
+                    sizes="(max-width: 1024px) 90vw, 50vw"
                     className="relative object-contain drop-shadow-2xl w-full rounded-3xl animate-float-reverse"
                     priority
-                    unoptimized
                   />
                 </div>
               </Reveal>
@@ -355,6 +352,7 @@ export default function Home() {
                 height={750}
                 sizes="(max-width: 768px) 90vw, 40vw"
                 className="relative object-contain drop-shadow-xl w-full rounded-3xl"
+                loading="lazy"
               />
             </div>
           </Reveal>
@@ -438,6 +436,7 @@ export default function Home() {
                   height={520}
                   sizes="(max-width: 768px) 100vw, 45vw"
                   className="relative object-contain drop-shadow-xl w-full rounded-3xl"
+                  loading="lazy"
                 />
               </div>
             </Reveal>
@@ -624,7 +623,7 @@ export default function Home() {
                       width={48}
                       height={48}
                       className="testimonial-photo"
-                      unoptimized
+                      loading="lazy"
                     />
                     <div>
                       <p className="font-display font-bold text-slate-900 text-sm">{dep.name}</p>

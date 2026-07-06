@@ -3,11 +3,11 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 const CAROUSEL_IMAGES = [
-  { src: "https://i.imgur.com/1Hr4RvD.png",  alt: "Material Pequenos Gênios — Cartilha de Alfabetização" },
-  { src: "https://i.imgur.com/2O594Pc.jpeg", alt: "Material Pequenos Gênios — Caderno Silábico Simples" },
-  { src: "https://i.imgur.com/PI47zZ9.jpeg", alt: "Material Pequenos Gênios — Caderno Silábico Complexo" },
-  { src: "https://i.imgur.com/vB2DBhC.jpeg", alt: "Material Pequenos Gênios — Atividades Silábicas" },
-  { src: "https://i.imgur.com/lGN61W9.jpeg", alt: "Material Pequenos Gênios — Baú Mágico da Leitura" },
+  { src: "/imgs/carousel-1.webp", alt: "Material Pequenos Gênios — Cartilha de Alfabetização" },
+  { src: "/imgs/carousel-2.webp", alt: "Material Pequenos Gênios — Caderno Silábico Simples" },
+  { src: "/imgs/carousel-3.webp", alt: "Material Pequenos Gênios — Caderno Silábico Complexo" },
+  { src: "/imgs/carousel-4.webp", alt: "Material Pequenos Gênios — Atividades Silábicas" },
+  { src: "/imgs/carousel-5.webp", alt: "Material Pequenos Gênios — Baú Mágico da Leitura" },
 ];
 
 export function AutoCarousel() {
@@ -51,7 +51,7 @@ export function AutoCarousel() {
                   fill
                   sizes="(max-width: 768px) 90vw, 1000px"
                   className="object-contain"
-                  unoptimized
+                  loading="lazy"
                 />
               </div>
             </div>

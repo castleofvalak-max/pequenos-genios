@@ -1,17 +1,20 @@
 import type {Metadata} from 'next';
 import { Baloo_2, Nunito } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 
 const baloo = Baloo_2({
   subsets: ['latin'],
   variable: '--font-baloo',
   weight: ['400', '500', '600', '700', '800'],
+  display: 'swap',
 });
 
 const nunito = Nunito({
   subsets: ['latin'],
   variable: '--font-nunito',
   weight: ['400', '600', '700', '800'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -38,7 +41,7 @@ export const metadata: Metadata = {
     locale: 'pt_BR',
     images: [
       {
-        url: '/imgs/COLEÇÃO.png',
+        url: '/imgs/colecao.webp',
         width: 1200,
         height: 630,
         alt: 'Coleção Pequenos Gênios — Programa de Alfabetização',
@@ -51,12 +54,16 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="pt-BR" className={`scroll-smooth ${baloo.variable} ${nunito.variable}`}>
       <head>
-        {/* ============================================================== */}
-        {/* INÍCIO DOS SCRIPTS DE TRAQUEAMENTO (META ADS E UTMIFY) */}
-        {/* ============================================================== */}
-        
+        <link rel="preconnect" href="https://connect.facebook.net" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://cdn.utmify.com.br" crossOrigin="anonymous" />
+      </head>
+      <body className="font-sans antialiased text-slate-800 bg-white" suppressHydrationWarning>
+        {children}
+
         {/* 1. Meta Pixel Code */}
-        <script
+        <Script
+          id="meta-pixel"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
 !function(f,b,e,v,n,t,s)
@@ -81,36 +88,30 @@ fbq('track', 'PageView');
             alt="Meta Pixel"
           />
         </noscript>
-        {/* End Meta Pixel Code */}
 
-        {/* 2. Script UTM baixado na UTMIFY */}
-        <script
+        {/* 2. Script UTM da UTMIFY */}
+        <Script
           src="https://cdn.utmify.com.br/scripts/utms/latest.js"
           data-utmify-prevent-xcod-sck=""
           data-utmify-prevent-subids=""
-          async
-          defer
-        ></script>
+          strategy="afterInteractive"
+        />
 
         {/* 3. Pixel Facebook cadastrado na UTMIFY */}
-        <script
+        <Script
+          id="utmify-pixel"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-  window.pixelId = "6a4b029684bca8ebef0ab808";
-  var a = document.createElement("script");
-  a.setAttribute("async", "");
-  a.setAttribute("defer", "");
-  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-  document.head.appendChild(a);
+window.pixelId = "6a4b029684bca8ebef0ab808";
+var a = document.createElement("script");
+a.setAttribute("async", "");
+a.setAttribute("defer", "");
+a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+document.head.appendChild(a);
             `,
           }}
         />
-        {/* ============================================================== */}
-        {/* FIM DOS SCRIPTS DE TRAQUEAMENTO */}
-        {/* ============================================================== */}
-      </head>
-      <body className="font-sans antialiased text-slate-800 bg-white" suppressHydrationWarning>
-        {children}
       </body>
     </html>
   );
