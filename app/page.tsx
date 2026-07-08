@@ -209,7 +209,7 @@ export default function Home() {
                   Enquanto você procura materiais soltos na internet, o{' '}
                   <strong>tempo de ouro da alfabetização</strong> passa.
                   O <strong><em>Pequenos Gênios™</em></strong> é uma jornada mágica, completa e
-                  progressiva, do primeiro A até as primeiras histórias.
+                  progressiva, <strong>do primeiro A até as primeiras histórias</strong>.
                 </p>
                 <p className="text-sm text-slate-600 italic mb-6 max-w-xl mx-auto lg:mx-0">
                   <strong>"Grandes descobertas começam com as primeiras letras."</strong>
