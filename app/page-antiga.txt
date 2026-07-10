@@ -1,13 +1,14 @@
 import Image from 'next/image';
 import {
   CheckCircle2, Gift, Star, ShieldCheck,
-  Sparkles, Rocket, MapPin, Lock, Zap
+  BookOpen, PenTool, Library, Sparkles, Rocket,
+  MapPin, Lock, Zap, Heart, Users
 } from 'lucide-react';
-import { Reveal } from '@/estrutura-2/components/Reveal';
-import { CountdownTimer } from '@/estrutura-2/components/CountdownTimer';
-import { FAQ } from '@/estrutura-2/components/FAQ';
-import { StickyCTA } from '@/estrutura-2/components/StickyCTA';
-import { AutoCarousel } from '@/estrutura-2/components/AutoCarousel';
+import { Reveal } from '@/components/Reveal';
+import { CountdownTimer } from '@/components/CountdownTimer';
+import { FAQ } from '@/components/FAQ';
+import { StickyCTA } from '@/components/StickyCTA';
+import { AutoCarousel } from '@/components/AutoCarousel';
 
 // ============================================================
 // IMAGENS — Todas locais e em WebP para máxima performance
@@ -24,8 +25,8 @@ const MISSOES = [
     num: "1",
     emoji: "🗺️",
     title: "Descobrindo as Letras",
-    subtitle: "O Primeiro Mapa do Tesouro",
-    desc: "Aqui começa a aventura. A criança conhece cada letra, descobre padrões e constrói familiaridade com o mundo da escrita, como um explorador que aprende a ler as estrelas.",
+    subtitle: "O primeiro mapa do tesouro",
+    desc: "Aqui começa a aventura. A criança conhece cada letra, descobre padrões e constrói familiaridade com o mundo da escrita — como um explorador que aprende a ler as estrelas.",
     includes: ["📘 Cartilha de Alfabetização"],
     val: "R$67",
     color: "#D8C3E5",
@@ -36,7 +37,7 @@ const MISSOES = [
     num: "2",
     emoji: "⚡",
     title: "Construindo Palavras",
-    subtitle: "O Poder das Sílabas",
+    subtitle: "O poder das sílabas",
     desc: "As letras ganham vida! Agora a criança descobre como elas se unem, formam sílabas e geram palavras. Cada nova combinação é como abrir um novo portal de descoberta.",
     includes: ["📘 Caderno Silábico Simples", "📘 Caderno Silábico Complexo"],
     val: "R$79",
@@ -48,7 +49,7 @@ const MISSOES = [
     num: "3",
     emoji: "✨",
     title: "Explorando a Leitura",
-    subtitle: "A Primeira Leitura Independente",
+    subtitle: "A primeira leitura independente",
     desc: "Chegou o momento mágico: a criança lê sozinha. Palavras, frases, pequenas histórias. O dragão amigo está do lado e o orgulho daquele sorriso é o melhor presente.",
     includes: ["📘 Caderno de Atividades Silábicas", "🪄 Baú Mágico da Leitura Infantil"],
     val: "R$89",
@@ -58,78 +59,80 @@ const MISSOES = [
   },
 ];
 
-// Bônus — textos do novo_copy_pequeno_genios.md, Seção 5
 const BONUS = [
   {
-    emoji: "🎁",
-    title: "Painel Alfabeto",
-    desc: "Apoio visual para reforçar letras.",
+    emoji: "🎨",
+    title: "Painel Alfabeto Colorido",
+    desc: "Um mural mágico para reforçar o reconhecimento das letras no dia a dia, na parede do quarto ou da sala de aula.",
     val: "R$29",
   },
   {
-    emoji: "🎁",
+    emoji: "🧩",
     title: "Oficina das Palavras",
-    desc: "Alfabeto móvel para montar palavras.",
+    desc: "Alfabeto Móvel para montar, desmontar e criar novas combinações. Aprender brincando, como deve ser!",
     val: "R$39",
   },
   {
-    emoji: "🎁",
-    title: "Mapa das Sílabas",
-    desc: "Consulta rápida para as atividades.",
+    emoji: "🎮",
+    title: "Jogo da Memória do Alfabeto",
+    desc: "A referência visual que transforma o treino das letras numa brincadeira inesquecível. Toda família vai querer jogar!",
     val: "R$35",
   },
   {
-    emoji: "🎁",
-    title: "Guia dos Sons",
-    desc: "Associação visual entre letra e som.",
-    val: "R$39",
-  },
-  {
-    emoji: "🎁",
-    title: "Desafio Silábico",
-    desc: "Atividades extras de consciência de palavras.",
+    emoji: "🔊",
+    title: "Guia dos Sons das Letras",
+    desc: "O Silabário e seus Fonemas: o mapa que conecta cada letra ao seu som. Essencial para o domínio da leitura.",
     val: "R$39",
   },
 ];
 
-// Benefícios — textos do novo_copy_pequeno_genios.md, Seção 4
-const BENEFICIOS = [
-  { icon: "📘", label: "Jornada Organizada", micro: "3 missões prontas para aplicar." },
-  { icon: "🧩", label: "Descoberta Lúdica", micro: "A criança nem vê que está estudando." },
-  { icon: "🚀", label: "Progresso Visível", micro: "Da letra à frase em poucas semanas." },
-  { icon: "⏱️", label: "Economia de Tempo", micro: "Materiais selecionados, sem pesquisa infinita." },
-  { icon: "🐉", label: "Confiança Plena", micro: "Pequenas conquistas geram autoestima." },
+const HABILIDADES = [
+  { icon: "🔤", label: "Reconhecimento de letras" },
+  { icon: "🧱", label: "Formação de sílabas" },
+  { icon: "📖", label: "Leitura de palavras" },
+  { icon: "💬", label: "Leitura de frases completas" },
+  { icon: "📚", label: "Contato com pequenos textos" },
+  { icon: "🗣️", label: "Ampliação do vocabulário" },
+  { icon: "❤️", label: "Interesse genuíno pela leitura" },
+  { icon: "🌟", label: "Confiança para participar" },
 ];
 
-// Depoimentos — textos do novo_copy_pequeno_genios.md, Seção 8
 const DEPOIMENTOS = [
   {
-    name: "Ana",
-    role: "Mãe",
-    text: "Meu filho pede para ler! Descobri que ele só precisava de incentivos certos.",
+    name: "Adriana S.",
+    role: "Mãe da Ana Clara, 5 anos",
+    text: "Minha filha achava as letras chatas. Depois da Missão 1, ela ficou pedindo para fazer mais. Chorei quando ela leu a primeira palavra sozinha.",
     stars: 5,
     initial: "A",
     color: "#D8C3E5",
     photo: "https://i.pravatar.cc/96?img=47",
   },
   {
-    name: "Professora Mariana",
-    role: "Professora",
-    text: "A evolução é nítida. O material organizado salvou meu planejamento.",
+    name: "Professora Mariana R.",
+    role: "Professora do 1º ano — ES",
+    text: "Uso com minhas turmas há 3 meses. A jornada das Missões é exatamente o que faltava. As crianças sentem que estão em uma aventura, e eu economizo horas de planejamento.",
     stars: 5,
     initial: "M",
     color: "#9ED8C9",
     photo: "https://i.pravatar.cc/96?img=44",
   },
   {
-    name: "Pedagoga Carla",
+    name: "Pedagoga Carla B.",
     role: "Psicopedagoga Clínica",
-    text: "Transforma a alfabetização. A jornada lógica faz toda a diferença.",
+    text: "O diferencial é a progressão. Os materiais se complementam perfeitamente. Recomendo para todas as famílias dos meus pacientes em processo de alfabetização.",
     stars: 5,
     initial: "C",
     color: "#F4A261",
     photo: "https://i.pravatar.cc/96?img=32",
   },
+];
+
+const PARA_QUEM = [
+  { icon: <Heart className="w-5 h-5" />, label: "Papai e Mamãe que querem apoiar seu filho em casa" },
+  { icon: <Users className="w-5 h-5" />, label: "Professoras da Educação Infantil e Fund. I" },
+  { icon: <BookOpen className="w-5 h-5" />, label: "Pedagogas e Psicopedagogas" },
+  { icon: <Sparkles className="w-5 h-5" />, label: "Professoras de reforço escolar" },
+  { icon: <Zap className="w-5 h-5" />, label: "Quem busca uma jornada, não atividades soltas" },
 ];
 
 // ============================================================
@@ -151,8 +154,7 @@ export default function Home() {
       </div>
 
       {/* ======================================================
-          SEÇÃO 1 — HERO
-          Fonte: novo_copy_pequeno_genios.md, Seção 1
+          SEÇÃO 1 — HERO (Dor + Promessa)
       ====================================================== */}
       <section
         className="bg-[#D8C3E5] relative pt-14 pb-24 px-6 lg:pt-24 lg:pb-36 overflow-hidden magic-bg"
@@ -175,9 +177,13 @@ export default function Home() {
           </div>
         ))}
 
+        {/*
+          LAYOUT DESKTOP: texto esquerda | imagem direita
+          LAYOUT MOBILE: badges + h1 + imagem + CTA + selos (imagem ACIMA do botão)
+        */}
         <div className="max-w-7xl mx-auto relative z-10">
 
-          {/* ---- Badges ---- */}
+          {/* ---- Badges (sempre no topo) ---- */}
           <Reveal>
             <div className="flex items-center gap-2 justify-center lg:justify-start mb-5">
               <span className="badge-gold">✦ Programa de Alfabetização</span>
@@ -189,20 +195,24 @@ export default function Home() {
             {/* Coluna de Texto */}
             <div className="flex-1 text-center lg:text-left">
               <Reveal>
-                {/* Título — novo_copy Seção 1 */}
-                <h1
-                  className="hero-headline font-display font-black text-slate-900 mb-5 text-glow"
-                  style={{ fontSize: 'clamp(1.75rem, 5vw, 3.5rem)' }}
-                >
-                  Chega de Frustração! A melhor frase que seu filho vai dizer:<br />
-                  <span className="shimmer-text-hero">&ldquo;Mãe, consegui ler sozinho!&rdquo;</span>
+                <h1 className="hero-headline font-display font-black text-slate-900 mb-5 text-glow">
+                  Toda criança nasce curiosa.
+                  <br />
+                  <span className="text-[#E76F51]">A sua já descobriu</span>
+                  <br />
+                  o prazer de ler?
                 </h1>
               </Reveal>
 
               <Reveal delay={0.2}>
-                {/* Subtítulo — novo_copy Seção 1 */}
                 <p className="text-lg md:text-xl text-slate-800 mb-4 max-w-xl mx-auto lg:mx-0 font-medium leading-relaxed">
-                  Descubra a jornada que transforma o medo da leitura em descoberta.
+                  Enquanto você procura materiais soltos na internet, o{' '}
+                  <strong>tempo de ouro da alfabetização</strong> passa.
+                  O <strong><em>Pequenos Gênios™</em></strong> é uma jornada mágica, completa e
+                  progressiva, do primeiro A até as primeiras histórias.
+                </p>
+                <p className="text-sm text-slate-600 italic mb-6 max-w-xl mx-auto lg:mx-0">
+                  <strong>"Grandes descobertas começam com as primeiras letras."</strong>
                 </p>
               </Reveal>
 
@@ -232,8 +242,7 @@ export default function Home() {
                     id="hero-cta-btn"
                   >
                     <Rocket className="w-5 h-5" />
-                    {/* CTA — novo_copy Seção 1 */}
-                    CHEGA DE FRUSTRAÇÃO!
+                    Quero despertar o gênio leitor do meu filho
                   </a>
                 </div>
 
@@ -267,25 +276,27 @@ export default function Home() {
       </section>
 
       {/* ======================================================
-          SEÇÃO 2 — IDENTIFICAÇÃO DA DOR (lista de frases-choque)
-          Fonte: novo_copy_pequeno_genios.md, Seção 2
+          SEÇÃO 2 — AGITAÇÃO DA DOR (PAS)
       ====================================================== */}
       <section className="bg-white py-16 px-6" id="dor">
         <div className="max-w-4xl mx-auto">
           <Reveal>
             <div className="text-center mb-10">
               <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                Você está cansado de tentar e não ver resultado?
+                Você já se sentiu assim? 😔
               </h2>
+              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                A maioria das mães, professoras e pedagogas que encontramos já passou por isso...
+              </p>
             </div>
           </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
-              { emoji: "⚠️", text: "Seu filho trava na leitura e você não sabe como ajudar." },
-              { emoji: "⚠️", text: "Você gasta horas pesquisando atividades soltas no Google e no Pinterest." },
-              { emoji: "⚠️", text: "A escola cobra resultado, mas a criança não avança." },
-              { emoji: "⚠️", text: "As férias chegam e o aprendizado regride por causa do celular." },
+              { emoji: "😩", text: "Horas procurando materiais no Google e Pinterest, sem saber se funcionam para o seu filho" },
+              { emoji: "😰", text: "A criança perde o interesse rápido e você não sabe mais o que fazer para motivá-la" },
+              { emoji: "📦", text: "Tem materiais espalhados por toda parte, mas nenhum que siga uma sequência lógica" },
+              { emoji: "💸", text: "Já gastou dinheiro em cursinhos e apostilas que não chegaram a lugar nenhum" },
             ].map((item, i) => (
               <Reveal key={i} delay={i * 0.1}>
                 <div className="pain-card flex items-start gap-4">
@@ -295,12 +306,22 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+
+          <Reveal delay={0.4}>
+            <div className="mt-10 text-center bg-[#D2E9F5] rounded-3xl p-8">
+              <p className="text-2xl font-display font-bold text-slate-900 mb-2">
+                E se existisse uma jornada completa, organizada e mágica…
+              </p>
+              <p className="text-slate-700 text-lg">
+                Que guiasse sua criança <em>passo a passo</em>, das primeiras letras até a primeira leitura independente?
+              </p>
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ======================================================
-          SEÇÃO 3 — SOLUÇÃO
-          Fonte: novo_copy_pequeno_genios.md, Seção 3
+          SEÇÃO 3 — A SOLUÇÃO: MAPA DA JORNADA (3 Missões)
       ====================================================== */}
       <section className="bg-[#D2E9F5] py-20 px-6 magic-bg" id="jornada">
         <div className="max-w-7xl mx-auto">
@@ -310,20 +331,17 @@ export default function Home() {
                 <MapPin className="w-4 h-4" /> Mapa da Jornada
               </div>
               <h2 className="font-display text-3xl md:text-5xl font-bold text-slate-900 mb-4 text-glow">
-                O segredo não é a repetição, é a associação lúdica.
+                Uma Jornada em 3 Missões Épicas
               </h2>
               <p className="text-lg text-slate-700 font-medium leading-relaxed">
-                Alfabetizar não precisa ser um campo de batalha. Quando a criança vê a leitura como uma aventura, ela mesma pede para ler.
-                <br /><br />
-                É assim que o <strong>Pequenos Gênios™</strong> funciona.
-              </p>
-              <p className="text-lg text-slate-800 font-bold mt-4">
-                Pequenos Gênios™ é o atalho para uma alfabetização sem lágrimas.
+                A maioria dos materiais entrega <strong>atividades isoladas</strong>.
+                O Pequenos Gênios™ organiza tudo em uma <strong>jornada lógica de aprendizagem</strong>.
+                A criança não recebe apenas exercícios. <em>Ela percorre um caminho.</em>
               </p>
             </div>
           </Reveal>
 
-          {/* Imagem do mapa */}
+          {/* Imagem do mapa — a que tem o caminho com as 3 placas */}
           <Reveal delay={0.1}>
             <div className="relative max-w-2xl mx-auto mb-14">
               <div className="absolute -inset-6 bg-white/50 rounded-[40px] blur-2xl"></div>
@@ -344,6 +362,7 @@ export default function Home() {
             {MISSOES.map((missao, i) => (
               <Reveal key={i} delay={i * 0.12}>
                 <div className={`mission-card bg-white h-full flex flex-col`}>
+                  {/* Header colorido */}
                   <div
                     className="p-6 flex items-center gap-4"
                     style={{ background: `${missao.color}30` }}
@@ -367,6 +386,7 @@ export default function Home() {
                     </div>
                   </div>
 
+                  {/* Corpo */}
                   <div className="p-6 flex flex-col flex-grow">
                     <p className="text-slate-600 leading-relaxed mb-6 flex-grow">
                       {missao.desc}
@@ -400,12 +420,11 @@ export default function Home() {
       </section>
 
       {/* ======================================================
-          SEÇÃO 4 — BENEFÍCIOS (ícone + microtexto)
-          Fonte: novo_copy_pequeno_genios.md, Seção 4
+          SEÇÃO 4 — O QUE A CRIANÇA DESENVOLVE
       ====================================================== */}
       <section className="bg-white bg-texture py-20 px-6" id="habilidades">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
-          {/* Coluna esquerda — Materiais */}
+          {/* Coluna esquerda — Materiais na mesa */}
           <div className="flex-1 w-full order-2 lg:order-1 max-w-lg">
             <Reveal>
               <div className="relative">
@@ -423,27 +442,27 @@ export default function Home() {
             </Reveal>
           </div>
 
-          {/* Coluna direita — Benefícios */}
+          {/* Coluna direita — Habilidades */}
           <div className="flex-1 order-1 lg:order-2">
             <Reveal>
               <div className="inline-flex items-center gap-2 badge-gold mb-4">
-                <Sparkles className="w-4 h-4" /> O Que Está Incluso
+                <Sparkles className="w-4 h-4" /> O Que a Criança Desenvolve
               </div>
               <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                Todo o material que você precisa{' '}
-                <span className="shimmer-text">em um só lugar.</span>
+                Do reconhecimento das letras{' '}
+                <span className="shimmer-text">até a leitura independente.</span>
               </h2>
+              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                Ao percorrer as 3 Missões, a criança desenvolve de forma natural e progressiva as habilidades fundamentais da alfabetização:
+              </p>
             </Reveal>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {BENEFICIOS.map((item, i) => (
+              {HABILIDADES.map((item, i) => (
                 <Reveal key={i} delay={0.08 * (i % 4)}>
-                  <div className="flex items-start gap-3 bg-slate-50 hover:bg-[#D2E9F5]/40 rounded-xl p-4 border border-slate-100 hover:border-[#9ED8C9]/50 transition-all duration-200 group">
-                    <span className="text-2xl group-hover:animate-sparkle flex-shrink-0">{item.icon}</span>
-                    <div>
-                      <span className="text-slate-800 font-bold leading-snug block">{item.label}</span>
-                      <span className="text-slate-500 text-sm leading-snug">{item.micro}</span>
-                    </div>
+                  <div className="flex items-center gap-3 bg-slate-50 hover:bg-[#D2E9F5]/40 rounded-xl p-4 border border-slate-100 hover:border-[#9ED8C9]/50 transition-all duration-200 group">
+                    <span className="text-2xl group-hover:animate-sparkle">{item.icon}</span>
+                    <span className="text-slate-700 font-semibold leading-snug">{item.label}</span>
                   </div>
                 </Reveal>
               ))}
@@ -453,8 +472,26 @@ export default function Home() {
       </section>
 
       {/* ======================================================
-          SEÇÃO 5 — BÔNUS
-          Fonte: novo_copy_pequeno_genios.md, Seção 5
+          SEÇÃO 5 — PREVIEW DOS MATERIAIS (Carrossel Automático)
+      ====================================================== */}
+      <section className="bg-slate-50 py-16 px-2 sm:px-6 border-y border-slate-100" id="preview">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-10">
+            <Reveal>
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-3">
+                Espie o Que Está Dentro do Baú Mágico 🪄
+              </h2>
+              <p className="text-slate-600 text-lg">
+                Materiais lindos, organizados e prontos para imprimir, do jeito que crianças adoram.
+              </p>
+            </Reveal>
+          </div>
+          <AutoCarousel />
+        </div>
+      </section>
+
+      {/* ======================================================
+          SEÇÃO 6 — FERRAMENTAS MÁGICAS (Bônus)
       ====================================================== */}
       <section className="bg-[#FFFBF0] py-20 px-6" id="bonus">
         <div className="max-w-7xl mx-auto">
@@ -464,7 +501,7 @@ export default function Home() {
                 <Gift className="w-4 h-4" /> Bônus Especiais
               </div>
               <h2 className="font-display text-3xl md:text-5xl font-bold text-slate-900 mb-4">
-                🪄 5 ferramentas extras para acelerar o resultado.
+                🪄 As Ferramentas Mágicas da Jornada
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                 Porque toda grande descoberta merece instrumentos à altura.
@@ -473,7 +510,7 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {BONUS.map((bonus, i) => (
               <Reveal key={i} delay={i * 0.1}>
                 <div className="bonus-card flex flex-col h-full">
@@ -507,27 +544,101 @@ export default function Home() {
       </section>
 
       {/* ======================================================
-          SEÇÃO 7 — CARROSSEL DE EXEMPLOS (Movido para antes da oferta)
+          SEÇÃO 7 — PARA QUEM É
       ====================================================== */}
-      <section className="bg-slate-50 py-16 px-2 sm:px-6 border-y border-slate-100" id="preview">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-10">
-            <Reveal>
+      <section className="bg-[#D8C3E5]/30 py-16 px-6">
+        <div className="max-w-4xl mx-auto">
+          <Reveal>
+            <div className="text-center mb-10">
               <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-3">
-                Veja na prática o que você vai receber.
+                Este Programa é Para Você…
               </h2>
-              <p className="text-slate-600 text-lg">
-                Materiais lindos, organizados e prontos para imprimir, do jeito que crianças adoram.
-              </p>
-            </Reveal>
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {PARA_QUEM.map((item, i) => (
+              <Reveal key={i} delay={i * 0.08}>
+                <div className="flex items-center gap-4 bg-white rounded-2xl p-5 shadow-sm border border-[#D8C3E5]/50 hover:shadow-md hover:border-[#D8C3E5] transition-all group">
+                  <div className="w-10 h-10 bg-[#D8C3E5] rounded-xl flex items-center justify-center text-slate-700 flex-shrink-0 group-hover:bg-[#F4A261] group-hover:text-white transition-colors">
+                    {item.icon}
+                  </div>
+                  <p className="font-semibold text-slate-800">{item.label}</p>
+                </div>
+              </Reveal>
+            ))}
           </div>
-          <AutoCarousel />
         </div>
       </section>
 
       {/* ======================================================
-          SEÇÃO 6 — OFERTA COM TEMPORIZADOR
-          Fonte: novo_copy_pequeno_genios.md, Seção 6
+          SEÇÃO 8 — DEPOIMENTOS
+      ====================================================== */}
+      <section className="bg-[#D8C3E5] py-20 px-6 relative overflow-hidden" id="depoimentos">
+        <div className="absolute top-10 right-20 w-24 h-24 bg-white/20 rounded-full blur-2xl pointer-events-none"></div>
+        <div className="absolute bottom-20 left-10 w-32 h-32 bg-[#F4D03F]/30 rounded-full blur-2xl pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <Reveal>
+            <div className="text-center mb-14">
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-white text-glow mb-3">
+                O Que Estão Dizendo Sobre o Pequenos Gênios™
+              </h2>
+              <div className="flex justify-center gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-6 h-6 fill-[#F4D03F] text-[#F4D03F]" />
+                ))}
+                <span className="text-white font-bold ml-2">5.0 — Centenas de famílias</span>
+              </div>
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {DEPOIMENTOS.map((dep, i) => (
+              <Reveal key={i} delay={i * 0.1}>
+                <div className="testimonial-card h-full flex flex-col">
+                  {/* Quote icon */}
+                  <div
+                    className="absolute -left-3 -top-3 w-12 h-12 rounded-full flex items-center justify-center text-white text-2xl font-display font-black shadow-lg"
+                    style={{ background: dep.color }}
+                  >
+                    &ldquo;
+                  </div>
+
+                  <div className="flex gap-1 mb-4 mt-2">
+                    {[...Array(dep.stars)].map((_, j) => (
+                      <Star key={j} className="w-4 h-4 fill-[#F4D03F] text-[#F4D03F]" />
+                    ))}
+                  </div>
+
+                  <p className="text-slate-700 font-medium italic leading-relaxed flex-grow mb-6">
+                    &ldquo;{dep.text}&rdquo;
+                  </p>
+
+                  <div className="flex items-center gap-3 border-t border-slate-100 pt-4">
+                    {/* Foto com borda redonda */}
+                    <Image
+                      src={dep.photo}
+                      alt={`Foto de ${dep.name}`}
+                      width={48}
+                      height={48}
+                      className="testimonial-photo"
+                      loading="lazy"
+                    />
+                    <div>
+                      <p className="font-display font-bold text-slate-900 text-sm">{dep.name}</p>
+                      <p className="text-xs text-slate-500">{dep.role}</p>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ======================================================
+          SEÇÃO 9 — OFERTA / ANCORAGEM DE PREÇO
       ====================================================== */}
       <section id="oferta" className="bg-[#2C3E50] py-20 px-6 relative overflow-hidden">
         <div className="absolute inset-0 magic-bg opacity-30 pointer-events-none"></div>
@@ -545,12 +656,12 @@ export default function Home() {
           <Reveal>
             <div className="text-center mb-8">
               <div className="inline-flex items-center gap-2 badge-urgent mb-4 text-base px-5 py-2">
-                ⏳ Oferta expira em 15 minutos
+                ⚡ Oferta Especial de Lançamento
               </div>
               <h2 className="font-display text-3xl md:text-5xl font-bold text-white mb-3 text-glow">
-                Escolha a oferta ideal para seu filho.
+                Tudo isso por muito menos do que você imagina
               </h2>
-              <p className="text-slate-400 text-lg">Em 15 minutos, a oferta completa volta ao preço cheio.</p>
+              <p className="text-slate-400 text-lg">Compare o que você leva com o que você investe:</p>
             </div>
           </Reveal>
 
@@ -558,24 +669,17 @@ export default function Home() {
           <Reveal delay={0.1}>
             <div className="offer-cards-grid">
 
-              {/* ---- CARD 1 — Oferta Básica — R$10 ---- */}
+              {/* ---- CARD BÁSICO — Missão 1 — R$10 ---- */}
               <div className="offer-card-basic p-6 md:p-8">
-                <p className="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">CARD 1 – Oferta Básica</p>
-                <h3 className="font-display text-2xl font-black text-slate-900 mb-1">📘 Missão 1: Descobrindo as Letras</h3>
+                <p className="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">Oferta Básica</p>
+                <h3 className="font-display text-2xl font-black text-slate-900 mb-1">Missão 1</h3>
+                <p className="text-slate-500 text-sm mb-6">Descobrindo as Letras</p>
 
                 <div className="space-y-2 mb-6">
                   <p className="text-xs font-black uppercase tracking-widest text-slate-500 mb-3">📦 Inclui:</p>
                   <div className="value-stack-item main">
-                    <span className="font-semibold text-slate-700 text-sm flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />
-                      Acesso à Cartilha de Alfabetização
-                    </span>
-                  </div>
-                  <div className="value-stack-item main">
-                    <span className="font-semibold text-slate-700 text-sm flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />
-                      Atividades para reconhecimento de letras
-                    </span>
+                    <span className="font-semibold text-slate-700 text-sm">⭐ Missão 1 — Descobrindo as Letras</span>
+                    <span className="font-black text-slate-400 text-sm line-through">R$67</span>
                   </div>
                   <div className="border-t border-dashed border-slate-200 pt-3 mt-3 flex items-center justify-between">
                     <span className="text-xs text-slate-500">Valor total</span>
@@ -601,65 +705,43 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* ---- CARD 2 — Oferta Completa — R$27 ---- */}
+              {/* ---- CARD COMPLETO — Programa Completo — R$27 ---- */}
               <div className="offer-card-full p-6 md:p-8 mt-6 md:mt-0">
-                <p className="text-xs font-black uppercase tracking-widest text-slate-500 mb-2 mt-2">
-                  Oferta Completa
-                </p>
-                <h3 className="font-display text-xl font-black text-slate-900 mb-4">🚀 Pacote Pequenos Gênios™</h3>
-
-                {/* ---- Empilhamento de Valor — Missões ---- */}
-                <div className="space-y-2 mb-3">
-                  <p className="text-xs font-black uppercase tracking-widest text-slate-500 mb-3">
-                    📦 Programa principal:
+                {/* Empilhamento de Valor */}
+                <div className="space-y-2 mb-6">
+                  <p className="text-xs font-black uppercase tracking-widest text-slate-500 mb-4 mt-4">
+                    📦 O que você recebe hoje:
                   </p>
                   {[
                     { label: "⭐ Missão 1 — Descobrindo as Letras", val: "R$67", type: "main" },
                     { label: "⭐ Missão 2 — Construindo Palavras", val: "R$79", type: "main" },
                     { label: "⭐ Missão 3 — Explorando a Leitura", val: "R$89", type: "main" },
+                    { label: "🎨 Painel Alfabeto Colorido", val: "R$29", type: "bonus" },
+                    { label: "🧩 Oficina das Palavras", val: "R$39", type: "bonus" },
+                    { label: "🎮 Jogo da Memória do Alfabeto", val: "R$35", type: "bonus" },
+                    { label: "🔊 Guia dos Sons das Letras", val: "R$39", type: "bonus" },
                   ].map((item, i) => (
                     <div key={i} className={`value-stack-item ${item.type}`}>
                       <span className="font-semibold text-slate-700 text-sm">{item.label}</span>
                       <span className="font-black text-slate-500 text-sm line-through flex-shrink-0">{item.val}</span>
                     </div>
                   ))}
-                </div>
-
-                {/* ---- Empilhamento de Valor — Bônus ---- */}
-                <div className="space-y-2 mb-4">
-                  <p className="text-xs font-black uppercase tracking-widest text-[#E76F51] mb-3 pt-3 border-t border-dashed border-slate-200">
-                    🎁 Bônus exclusivos:
-                  </p>
-                  {[
-                    { label: "🎁 Painel Alfabeto", val: "R$29", type: "bonus" },
-                    { label: "🎁 Oficina das Palavras", val: "R$39", type: "bonus" },
-                    { label: "🎁 Mapa das Sílabas", val: "R$35", type: "bonus" },
-                    { label: "🎁 Guia dos Sons", val: "R$39", type: "bonus" },
-                    { label: "🎁 Desafio Silábico", val: "R$39", type: "bonus" },
-                  ].map((item, i) => (
-                    <div key={i} className={`value-stack-item ${item.type}`}>
-                      <span className="font-semibold text-slate-700 text-sm">{item.label}</span>
-                      <span className="font-black text-slate-500 text-sm line-through flex-shrink-0">{item.val}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* ---- Total ---- */}
-                <div className="border-t-2 border-dashed border-slate-200 my-4 pt-4 flex items-center justify-between px-4">
-                  <span className="font-bold text-slate-600">Valor total:</span>
-                  <span className="font-display font-black text-slate-400 text-xl line-through">R$415,00</span>
+                  <div className="border-t-2 border-dashed border-slate-200 my-4 pt-4 flex items-center justify-between px-4">
+                    <span className="font-bold text-slate-600">Valor total:</span>
+                    <span className="font-display font-black text-slate-400 text-xl line-through">R$415,00</span>
+                  </div>
                 </div>
 
                 {/* Destaque do Preço */}
                 <div className="text-center bg-gradient-to-br from-[#F4D03F]/20 to-[#9ED8C9]/20 rounded-2xl p-5 border-2 border-[#F4D03F]/40 mb-6">
                   <p className="text-slate-600 font-bold uppercase tracking-widest text-sm mb-2">
-                    🎯 Hoje você leva TUDO{' '}<br />por apenas
+                    🎯 Hoje você leva TUDO <br></br>por apenas
                   </p>
                   <div className="price-anchor-total font-display mb-1">
                     R$27,00
                   </div>
                   <p className="text-slate-500 text-sm">
-                    Ou parcelado em até 6x no cartão<br />Acesso imediato
+                    Ou parcelado em até 6x no cartão<br></br>Acesso imediato
                   </p>
                 </div>
 
@@ -698,75 +780,8 @@ export default function Home() {
         </div>
       </section>
 
-
       {/* ======================================================
-          SEÇÃO 8 — DEPOIMENTOS
-          Fonte: novo_copy_pequeno_genios.md, Seção 8
-      ====================================================== */}
-      <section className="bg-[#D8C3E5] py-20 px-6 relative overflow-hidden" id="depoimentos">
-        <div className="absolute top-10 right-20 w-24 h-24 bg-white/20 rounded-full blur-2xl pointer-events-none"></div>
-        <div className="absolute bottom-20 left-10 w-32 h-32 bg-[#F4D03F]/30 rounded-full blur-2xl pointer-events-none"></div>
-
-        <div className="max-w-7xl mx-auto relative z-10">
-          <Reveal>
-            <div className="text-center mb-14">
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-white text-glow mb-3">
-                A confiança que você esperava ver.
-              </h2>
-              <div className="flex justify-center gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-6 h-6 fill-[#F4D03F] text-[#F4D03F]" />
-                ))}
-                <span className="text-white font-bold ml-2">5.0 — Centenas de famílias</span>
-              </div>
-            </div>
-          </Reveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {DEPOIMENTOS.map((dep, i) => (
-              <Reveal key={i} delay={i * 0.1}>
-                <div className="testimonial-card h-full flex flex-col">
-                  <div
-                    className="absolute -left-3 -top-3 w-12 h-12 rounded-full flex items-center justify-center text-white text-2xl font-display font-black shadow-lg"
-                    style={{ background: dep.color }}
-                  >
-                    &ldquo;
-                  </div>
-
-                  <div className="flex gap-1 mb-4 mt-2">
-                    {[...Array(dep.stars)].map((_, j) => (
-                      <Star key={j} className="w-4 h-4 fill-[#F4D03F] text-[#F4D03F]" />
-                    ))}
-                  </div>
-
-                  <p className="text-slate-700 font-medium italic leading-relaxed flex-grow mb-6">
-                    &ldquo;{dep.text}&rdquo;
-                  </p>
-
-                  <div className="flex items-center gap-3 border-t border-slate-100 pt-4">
-                    <Image
-                      src={dep.photo}
-                      alt={`Foto de ${dep.name}`}
-                      width={48}
-                      height={48}
-                      className="testimonial-photo"
-                      loading="lazy"
-                    />
-                    <div>
-                      <p className="font-display font-bold text-slate-900 text-sm">{dep.name}</p>
-                      <p className="text-xs text-slate-500">{dep.role}</p>
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ======================================================
-          SEÇÃO 9 — GARANTIA
-          Fonte: novo_copy_pequeno_genios.md, Seção 9
+          SEÇÃO 10 — GARANTIA
       ====================================================== */}
       <section className="bg-[#E8F8F5] py-20 px-6 border-y border-[#9ED8C9]/30" id="garantia">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10 text-center md:text-left">
@@ -781,14 +796,17 @@ export default function Home() {
           <Reveal delay={0.2}>
             <div>
               <h2 className="font-display text-2xl md:text-3xl font-bold text-slate-900 mb-4">
-                Sem riscos. Sem surpresas.
+                Sua compra é 100% segura.
+                <br />
+                <span className="text-[#9ED8C9]">Garantia Incondicional de 7 Dias.</span>
               </h2>
               <p className="text-slate-700 text-lg leading-relaxed mb-4">
-                Teste o Pequenos Gênios™ por 7 dias.
+                Você tem <strong>7 dias completos</strong> para explorar todos os materiais, percorrer as 3 Missões e sentir a magia na prática.
               </p>
               <p className="text-slate-700 leading-relaxed">
-                Se não atender suas expectativas, devolvemos <strong>100% do seu dinheiro</strong> sem burocracia.
-                Garantia de 7 dias incondicional.
+                Se por qualquer motivo — seja técnico ou pessoal — o programa não atender às suas expectativas,
+                basta enviar um e-mail e devolvemos <strong>100% do valor</strong>.
+                Sem perguntas, sem burocracia, sem complicação.
               </p>
             </div>
           </Reveal>
@@ -796,16 +814,18 @@ export default function Home() {
       </section>
 
       {/* ======================================================
-          SEÇÃO 10 — PERGUNTAS FREQUENTES
-          Fonte: novo_copy_pequeno_genios.md, Seção 10
+          SEÇÃO 11 — FAQ
       ====================================================== */}
       <section className="bg-white bg-texture py-20 px-6" id="faq">
         <div className="max-w-7xl mx-auto">
           <Reveal>
             <div className="text-center mb-12">
               <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-3">
-                Tire suas dúvidas. 💬
+                Dúvidas? Respondemos Tudo. 💬
               </h2>
+              <p className="text-slate-600 text-lg">
+                As perguntas que mais chegam para a gente, respondidas sem enrolação.
+              </p>
             </div>
           </Reveal>
 
@@ -835,8 +855,7 @@ export default function Home() {
       </section>
 
       {/* ======================================================
-          SEÇÃO 11 — FOOTER
-          Fonte: novo_copy_pequeno_genios.md, Seção 11
+          FOOTER
       ====================================================== */}
       <footer className="bg-[#2C3E50] py-14 px-6 text-center text-slate-400">
         <div className="max-w-7xl mx-auto">
@@ -844,7 +863,7 @@ export default function Home() {
             Pequenos Gênios™
           </p>
           <p className="italic text-[#F4D03F]/70 text-sm mb-8">
-            &ldquo;Grandes descobertas começam com as primeiras letras.&rdquo;
+            "Grandes descobertas começam com as primeiras letras."
           </p>
           <div className="divider-stars">
             <span>✦</span><span>✦</span><span>✦</span>
